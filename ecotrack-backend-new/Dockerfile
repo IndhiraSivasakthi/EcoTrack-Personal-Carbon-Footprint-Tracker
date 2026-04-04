@@ -1,18 +1,16 @@
+# Step 1: Build JAR
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Step 2: Run JAR
 FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 
-# Copy only needed files first (better caching)
-COPY . .
-
-# Give permission
-RUN chmod +x mvnw
-
-# Build the project
-RUN ./mvnw clean package -DskipTests
-
-# Expose port
 EXPOSE 8080
 
-# Run the app
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "app.jar"]
