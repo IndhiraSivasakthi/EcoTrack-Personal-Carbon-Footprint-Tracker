@@ -18,8 +18,6 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./Register.css";
 import API from "../services/api";
-import axios from "axios";
-
 
 export default function Register() {
   const navigate = useNavigate();
@@ -33,9 +31,6 @@ export default function Register() {
   const [passwordStrength, setPasswordStrength] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL
-});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -96,7 +91,6 @@ export default function Register() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
