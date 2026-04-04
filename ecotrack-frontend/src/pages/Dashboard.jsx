@@ -195,7 +195,7 @@ const getTrendMessage = () => {
   
   const fetchDashboard = async () => {
     try {
-      const res = await API.get("/dashboard");
+      const res = await API.get("api/dashboard");
       const data = res.data;
 
       setStats([
@@ -254,8 +254,8 @@ const getTrendMessage = () => {
 
   const fetchCharts = async () => {
     try {
-      const trendRes = await API.get("/activity/trend");
-      const categoryRes = await API.get("/activity/category");
+      const trendRes = await API.get("api/activity/trend");
+      const categoryRes = await API.get("api/activity/category");
       
       // Convert to chart format
       setTrendData(
@@ -294,7 +294,7 @@ const getTrendMessage = () => {
     }
 
     try {
-      const res = await API.post("/activity", activityData);
+      const res = await API.post("api/activity", activityData);
       console.log("Saved:", res.data);
       setIsModalOpen(false);
       // Refresh dashboard after adding activity
