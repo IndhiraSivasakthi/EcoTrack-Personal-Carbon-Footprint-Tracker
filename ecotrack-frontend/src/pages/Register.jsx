@@ -97,7 +97,7 @@ export default function Register() {
     if (!validate()) return;
 
     try {
-      await API.post("/auth/register", form);
+      await API.post("api/auth/register", form);
       navigate("/login");
     } catch (err) {
       setErrors({ email: "Registration failed. Try another email." });
