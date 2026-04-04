@@ -23,10 +23,10 @@ public class SecurityConfig {
                 // ✅ Allow public APIs
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/activity/**").permitAll() // ✅ ADD THIS
-                        .requestMatchers("/api/dashboard/**").permitAll() // ✅ ADD THIS
-
-                        .anyRequest().authenticated()
+                        .requestMatchers("/api/activity/**").permitAll()
+                        .requestMatchers("/api/dashboard/**").permitAll()
+                        .requestMatchers("/api/test/**").permitAll()
+                        .anyRequest().permitAll()   // ✅ ONLY THIS
                 );
 
         return http.build();
