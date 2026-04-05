@@ -48,7 +48,7 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
   if (!validate()) return;
 
@@ -59,6 +59,7 @@ export default function Login() {
     localStorage.setItem("email", form.email);
     localStorage.setItem("name", res.data.name || form.name || "");
 
+    alert("Login successful!");
     window.location.href = "/dashboard";
   } catch (err) {
     setErrors({ password: "Invalid email or password" });
