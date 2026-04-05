@@ -276,33 +276,24 @@ const getTrendMessage = () => {
       console.error("Chart error:", err);
     }
   };
-  const updatePref = async (key, value) => {
-  const newPrefs = { ...notificationPrefs, [key]: value };
-  setNotificationPrefs(newPrefs);
   
-  try {
-    await API.patch("/notifications/prefs", newPrefs);
-  } catch (error) {
-    console.error("Pref update error:", error);
-  }
-};
 
   const handleSubmitActivity = async (activityData) => {
-    if (!activityData) {
-      setIsModalOpen(false);
-      return;
-    }
+  if (!activityData) {
+    setIsModalOpen(false);
+    return;
+  }
 
-    try {
-      const res = await API.post("api/activity", activityData);
-      console.log("Saved:", res.data);
-      setIsModalOpen(false);
-      // Refresh dashboard after adding activity
-      fetchDashboard();
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+  try {
+    const res = await API.post("api/activity", activityData);
+    console.log("Saved:", res.data);
+    alert("Activity successfully submitted!");
+    setIsModalOpen(false);
+    fetchDashboard();
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
 
   return (
     <div className="dashboard">
