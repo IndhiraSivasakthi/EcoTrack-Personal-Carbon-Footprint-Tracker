@@ -92,17 +92,18 @@ export default function Register() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validate()) return;
 
-    try {
-      await API.post("api/auth/register", form);
-      navigate("/login");
-    } catch (err) {
-      setErrors({ email: "Registration failed. Try another email." });
-    }
-  };
+  try {
+    await API.post("api/auth/register", form);
+    alert("Registration successful!");
+    navigate("/login");
+  } catch (err) {
+    setErrors({ email: "Registration failed. Try another email." });
+  }
+};
 
   const strengthColor =
     passwordStrength === "Weak"
