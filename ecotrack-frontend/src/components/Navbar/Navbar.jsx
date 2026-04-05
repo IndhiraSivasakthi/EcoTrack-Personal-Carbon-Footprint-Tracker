@@ -16,20 +16,21 @@ export default function Navbar() {
     setName(storedName || "");
   }, [location.pathname]);
 
-  const handleLogout = async () => {
-    try {
-      await API.post("/auth/logout");
-    } catch (err) {
-      console.error("Logout error", err);
-    }
+const handleLogout = async () => {
+  try {
+    await API.post("/auth/logout");
+  } catch (err) {
+    console.error("Logout error", err);
+  }
 
-    localStorage.removeItem("token");
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-    setIsLoggedIn(false);
-    setName("");
-    navigate("/");
-  };
+  localStorage.removeItem("token");
+  localStorage.removeItem("email");
+  localStorage.removeItem("name");
+  setIsLoggedIn(false);
+  setName("");
+  alert("Logout successful!");
+  navigate("/");
+};
 
   return (
     <nav className="navbar">
