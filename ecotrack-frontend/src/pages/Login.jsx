@@ -48,18 +48,19 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
   if (!validate()) return;
 
   try {
-    const res = await API.post("/auth/login", form);
+    const res = await API.post("/api/auth/login", form);
 
     localStorage.setItem("token", res.data.token);
     localStorage.setItem("email", form.email);
     localStorage.setItem("name", res.data.name || form.name || "");
 
-    window.location.href = "/dashboard";
+    alert("Login successful!");
+     navigate("/dashboard");
   } catch (err) {
     setErrors({ password: "Invalid email or password" });
   }
