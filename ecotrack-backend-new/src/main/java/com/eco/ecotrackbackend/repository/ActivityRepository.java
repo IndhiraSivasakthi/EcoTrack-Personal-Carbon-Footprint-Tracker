@@ -3,6 +3,8 @@ package com.eco.ecotrackbackend.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.eco.ecotrackbackend.model.Activity;
 import org.springframework.data.jpa.repository.Query;
+import com.eco.ecotrackbackend.dto.LeaderboardRow;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -35,4 +37,6 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
       AND a.date < :endDate
 """)
         Double getCO2BetweenDates(Long userId, LocalDate startDate, LocalDate endDate);
+            List<LeaderboardRow> getLeaderboardData();
+
     }
