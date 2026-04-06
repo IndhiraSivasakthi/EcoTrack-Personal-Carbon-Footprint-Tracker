@@ -60,7 +60,7 @@ const handleSubmit = async (e) => {
     localStorage.setItem("name", res.data.name || form.name || "");
 
     alert("Login successful!");
- navigate("/login");
+     navigate("/login");
   } catch (err) {
     setErrors({ password: "Invalid email or password" });
   }
