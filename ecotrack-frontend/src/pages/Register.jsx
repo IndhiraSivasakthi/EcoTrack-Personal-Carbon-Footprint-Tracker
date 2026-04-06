@@ -97,7 +97,7 @@ const handleSubmit = async (e) => {
   if (!validate()) return;
 
   try {
-    await API.post("api/auth/register", form);
+    await API.post("/api/auth/register", form);
     alert("Registration successful!");
     navigate("/login");
   } catch (err) {
