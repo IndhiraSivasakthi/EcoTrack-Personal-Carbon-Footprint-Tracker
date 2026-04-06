@@ -27,7 +27,6 @@ public class SecurityConfig {
                         .requestMatchers("/api/activity/**").permitAll()
                         .requestMatchers("/api/dashboard/**").permitAll()
                         .requestMatchers("/api/test/**").permitAll()
-                        .requestMatchers("/api/leaderboard/**").permitAll()
                         .anyRequest().permitAll()
                 );
 
