@@ -31,7 +31,6 @@ const handleLogout = async () => {
   alert("Logout successful!");
   navigate("/");
 };
-
   return (
     <nav className="navbar">
       <div className="navbar-shell">
