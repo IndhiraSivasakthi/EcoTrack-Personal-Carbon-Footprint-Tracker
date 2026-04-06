@@ -1,6 +1,6 @@
 package com.eco.ecotrackbackend.controller;
 
-import com.eco.ecotrackbackend.dto.LeaderboardResponse;
+import com.eco.ecotrackbackend.dto.LeaderboardDto;
 import com.eco.ecotrackbackend.service.LeaderboardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ public class LeaderboardController {
     private final LeaderboardService leaderboardService;
 
     @GetMapping
-    public List<LeaderboardResponse> getLeaderboard() {
+    public List<LeaderboardDto> getLeaderboard() {
         return leaderboardService.getLeaderboard();
     }
 }
