@@ -253,32 +253,29 @@ const getTrendMessage = () => {
   }, []);
 
   const fetchCharts = async () => {
-    try {
-      const trendRes = await API.get("/api/activity/trend");
-      const categoryRes = await API.get("/api/activity/category");
-      
-      // Convert to chart format
-      setTrendData(
-        Object.entries(trendRes.data).map(([day, value]) => ({
-          day,
-          value: parseFloat(value)
-        }))
-      );
+  try {
+    const trendRes = await API.get("/api/activity/trend");
+    const categoryRes = await API.get("/api/activity/category");
 
-      setCategoryData(
-        Object.entries(categoryRes.data).map(([name, value]) => ({
-          name,
-          value: parseFloat(value)
-        }))
-      );
+    setTrendData(
+      Object.entries(trendRes.data).map(([day, value]) => ({
+        day,
+        value: parseFloat(value)
+      }))
+    );
 
-    } catch (err) {
-      console.error("Chart error:", err);
-    }
-  };
-  
+    setCategoryData(
+      Object.entries(categoryRes.data).map(([name, value]) => ({
+        name,
+        value: parseFloat(value)
+      }))
+    );
+  } catch (err) {
+    console.error("Chart error:", err);
+  }
+};
 
-  const handleSubmitActivity = async (activityData) => {
+const handleSubmitActivity = async (activityData) => {
   if (!activityData) {
     setIsModalOpen(false);
     return;
@@ -289,7 +286,9 @@ const getTrendMessage = () => {
     console.log("Saved:", res.data);
     alert("Activity successfully submitted!");
     setIsModalOpen(false);
-    fetchDashboard();
+
+    await fetchDashboard();
+    await fetchCharts(); // ✅ reload charts after submit
   } catch (error) {
     console.error("Error:", error);
   }
