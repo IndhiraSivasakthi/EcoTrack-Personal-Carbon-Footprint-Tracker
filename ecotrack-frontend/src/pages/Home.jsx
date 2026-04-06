@@ -5,8 +5,7 @@ export default function Home() {
   const features = [
     "Track transport, food, and energy emissions",
     "Visualize daily and weekly CO₂ trends",
-    "Get smart eco-friendly suggestions",
-    "See top users in the eco leaderboard"
+    "Get smart eco-friendly suggestions"
   ];
 
   const highlights = [
@@ -44,9 +43,6 @@ export default function Home() {
             </Link>
             <Link to="/login" className="hero-btn secondary">
               Login
-            </Link>
-            <Link to="/leaderboard" className="hero-btn secondary leaderboard-btn">
-              Leaderboard
             </Link>
           </div>
 
