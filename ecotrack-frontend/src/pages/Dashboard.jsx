@@ -254,8 +254,8 @@ const getTrendMessage = () => {
 
   const fetchCharts = async () => {
     try {
-      const trendRes = await API.get("api/activity/trend");
-      const categoryRes = await API.get("api/activity/category");
+      const trendRes = await API.get("/api/activity/trend");
+      const categoryRes = await API.get("/api/activity/category");
       
       // Convert to chart format
       setTrendData(
@@ -285,7 +285,7 @@ const getTrendMessage = () => {
   }
 
   try {
-    const res = await API.post("api/activity", activityData);
+    const res = await API.post("/api/activity", activityData);
     console.log("Saved:", res.data);
     alert("Activity successfully submitted!");
     setIsModalOpen(false);
