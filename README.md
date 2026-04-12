@@ -5,6 +5,12 @@
 * 🔗 **Frontend:** https://ecotrack-personal-carbon-footprint-jyha.onrender.com/
 * 🔗 **Backend API:** https://ecotrack-personal-carbon-footprint-5nly.onrender.com/
 
+## 🖥️ Screenshot
+
+<p align="center">
+<img src="Screenshot/homepage.png" alt="ResearchGenie AI Web App" width="700" height ="600"/>
+</p>
+
 ---
 
 ## 📌 Overview
